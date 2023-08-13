@@ -101,24 +101,16 @@ The shortest array length is 1. The longest array length is 4.
  -->
 
 <?php
-$words = array("abcd", "abc", "de", "hjjj", "g", "wer");
-
-$shortestLength = PHP_INT_MAX;
-$longestLength = 0;
-
-foreach ($words as $word) {
-    $wordLength = strlen($word);
-
-    // Update shortest length if the current word is shorter
-    if ($wordLength < $shortestLength) {
-        $shortestLength = $wordLength;
-    }
-
-    // Update longest length if the current word is longer
-    if ($wordLength > $longestLength) {
-        $longestLength = $wordLength;
-    }
-}
-
-echo "The shortest array length is $shortestLength. The longest array length is $longestLength.";
+  $words =  array("abcd","abc","de","hjjj","g","wer");
+  $longest = $words[0];
+  $shortest = $words[0];
+  for ($i=0; $i < count($words); $i++) {
+      if (strlen($words[$i]) > strlen($longest)) {
+          $longest = $words[$i];       
+      }
+      if (strlen($words[$i]) < strlen($shortest)) {
+          $shortest = $words[$i];
+      }
+  }
+  echo "The shortest array length is " . strlen($shortest) . " The longest array length is " . strlen($longest) . "<br>";
 ?>
